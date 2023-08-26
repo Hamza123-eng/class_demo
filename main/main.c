@@ -1,3 +1,4 @@
+// master conflict 1
 /* vl53l1 Example
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
@@ -25,6 +26,9 @@
 
 // futher addition in the fature2
 //git merge conflict merger feature hamzatest
+
+
+
 #define I2C_MASTER_SCL_IO CONFIG_SCL_IO // make menuconfig
 #define I2C_MASTER_SDA_IO CONFIG_SDA_IO
 #define I2C_MASTER_NUM CONFIG_I2C_NUM
