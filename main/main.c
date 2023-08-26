@@ -26,7 +26,7 @@
 // now testing
 
 // futher addition in the fature2
-//rebase conflict by the feature2
+//git merge conflict merger feature hamzatest
 #define I2C_MASTER_SCL_IO CONFIG_SCL_IO // make menuconfig
 #define I2C_MASTER_SDA_IO CONFIG_SDA_IO
 #define I2C_MASTER_NUM CONFIG_I2C_NUM
