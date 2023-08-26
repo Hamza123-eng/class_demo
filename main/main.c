@@ -20,7 +20,7 @@
 #include "esp_log.h"
 #include "esp_err.h"
 #include "vl53l1_api.h"
-// feature addede
+// feature 2 addeded
 // now testing
 #define I2C_MASTER_SCL_IO CONFIG_SCL_IO // make menuconfig
 #define I2C_MASTER_SDA_IO CONFIG_SDA_IO
