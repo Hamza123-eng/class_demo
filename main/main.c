@@ -22,6 +22,8 @@
 #include "vl53l1_api.h"
 // feature 2 addeded
 // now testing
+
+// futher addition in the fature2
 #define I2C_MASTER_SCL_IO CONFIG_SCL_IO // make menuconfig
 #define I2C_MASTER_SDA_IO CONFIG_SDA_IO
 #define I2C_MASTER_NUM CONFIG_I2C_NUM
