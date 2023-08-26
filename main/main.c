@@ -7,7 +7,7 @@
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
 */
-
+//feature2 normal commit
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
