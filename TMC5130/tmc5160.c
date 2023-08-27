@@ -199,6 +199,23 @@ void TMC5160_Set_Auto_Left_Stop(TMC5160TypeDef *handle, int32_t value)
 		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPL_ENABLE);
 }
 
+void TMC5160_Set_Auto_Left_Pol_Stop(TMC5160TypeDef *handle, bool pol)
+{
+	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_SWMODE);
+	if (pol == 0)
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer | TMC5160_SW_STOPL_POLARITY);
+	else
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPL_POLARITY));
+}
+
+void TMC5160_Set_Auto_Right_Pol_Stop(TMC5160TypeDef *handle, bool pol)
+{
+	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_SWMODE);
+	if (pol == 0)
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer | TMC5160_SW_STOPR_POLARITY));
+	else
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPR_POLARITY));
+}
 // SW_MODE Register
 int32_t TMC5160_Get_SW_MODE(TMC5160TypeDef *handle)
 {
@@ -794,4 +811,28 @@ int32_t TMC5160_Get_Encoder_Resolution(TMC5160TypeDef *handle)
 void TMC5160_Set_Encoder_Resolution(TMC5160TypeDef *handle, int32_t value)
 {
 	TMC5160_Write_Register(handle, TMC5160_ENC_CONST, value);
+}
+/**
+ * @brief
+ *
+ * @param handle
+ * @return true
+ * @return false
+ */
+bool TMC5160_Pos_Reached(TMC5160TypeDef *handle)
+{
+	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
+	return buffer & TMC5160_RS_POSREACHED ? true : false;
+}
+
+bool TMC5160_Get_Left_Endstop(TMC5160TypeDef *handle)
+{
+	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
+	return buffer & TMC5160_RS_STOPL ? true : false;
+}
+
+bool TMC5160_Get_Right_Endstop(TMC5160TypeDef *handle)
+{
+	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
+	return buffer & TMC5160_RS_STOPR ? true : false;
 }

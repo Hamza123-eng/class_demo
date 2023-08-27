@@ -62,8 +62,9 @@ void App_Main(void)
 	TMC5160_Set_stallGuard2_THRESH(&Motor_X, 12);
 	TMC5160_Set_Auto_Right_Stop(&Motor_X, 0);
 	TMC5160_Set_Auto_Left_Stop(&Motor_X, 0);
+	TMC5160_Set_Auto_Left_Pol_Stop(&Motor_X, 0);
+	TMC5160_Set_Auto_Right_Pol_Stop(&Motor_X, 0);
 
-	My_Write_Register(&Motor_X, 0x80, 0x00000004);
 
 	TMC5160_Run(&Motor_X, -1000000);
 
