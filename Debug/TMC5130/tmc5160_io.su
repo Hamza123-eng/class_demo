@@ -1,0 +1,4 @@
+tmc5160_io.c:9:6:TMC5160_IO_Init	48	static
+tmc5160_io.c:26:6:TMC5160_Write_Register	40	static
+tmc5160_io.c:55:6:My_Write_Register	40	static
+tmc5160_io.c:84:9:TMC5160_Read_Register	32	static
