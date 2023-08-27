@@ -8,6 +8,25 @@
 
 TMC5160TypeDef Motor_X;
 
+void position_test()
+{
+   TMC5160_Move(&Motor_X,256*360*1,10000);
+// while (1)
+// 	{
+// 		if (TMC5160_Pos_Reached(&Motor_X))
+// 		{
+// 			uint8_t a;
+
+// 		}
+// 	}
+
+}
+
+void velocity_test()
+{
+	TMC5160_Run(&Motor_X, -1000000);
+}
+
 void App_Main(void)
 {
 	int32_t sts = 0;
@@ -66,7 +85,7 @@ void App_Main(void)
 	TMC5160_Set_Auto_Right_Pol_Stop(&Motor_X, 0);
 
 
-	TMC5160_Run(&Motor_X, -1000000);
 
+	
 	UNUSED(sts);
 }
