@@ -9,6 +9,21 @@
 static uint32_t vmax_position;
 static uint16_t vref; // mV
 
+void TMC5160_Set_Mode_Idle(TMC5160TypeDef *handle)
+{
+	// Set absolute velocity
+	// TMC5160_Write_Register(handle, TMC5160_VMAX, abs(velocity));
+	// Set direction
+	TMC5160_Write_Register(handle, TMC5160_RAMPMODE,  TMC5160_MODE_HOLD);
+}
+void TMC5160_Set_Mode_Position(TMC5160TypeDef *handle)
+{
+	// Set absolute velocity
+	// TMC5160_Write_Register(handle, TMC5160_VMAX, abs(velocity));
+	// Set direction
+	TMC5160_Write_Register(handle, TMC5160_RAMPMODE,  TMC5160_MODE_POSITION);
+}
+
 // Rotate with a given velocity (to the right)
 void TMC5160_Run(TMC5160TypeDef *handle, int32_t velocity)
 {
@@ -205,16 +220,16 @@ void TMC5160_Set_Auto_Left_Pol_Stop(TMC5160TypeDef *handle, bool pol)
 	if (pol == 0)
 		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer | TMC5160_SW_STOPL_POLARITY);
 	else
-		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPL_POLARITY));
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPL_POLARITY);
 }
 
 void TMC5160_Set_Auto_Right_Pol_Stop(TMC5160TypeDef *handle, bool pol)
 {
 	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_SWMODE);
 	if (pol == 0)
-		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer | TMC5160_SW_STOPR_POLARITY));
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer | TMC5160_SW_STOPR_POLARITY);
 	else
-		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPR_POLARITY));
+		TMC5160_Write_Register(handle, TMC5160_SWMODE, buffer & ~TMC5160_SW_STOPR_POLARITY);
 }
 // SW_MODE Register
 int32_t TMC5160_Get_SW_MODE(TMC5160TypeDef *handle)
@@ -825,14 +840,14 @@ bool TMC5160_Pos_Reached(TMC5160TypeDef *handle)
 	return buffer & TMC5160_RS_POSREACHED ? true : false;
 }
 
-bool TMC5160_Get_Left_Endstop(TMC5160TypeDef *handle)
-{
-	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
-	return buffer & TMC5160_RS_STOPL ? true : false;
-}
+// bool TMC5160_Get_Left_Endstop(TMC5160TypeDef *handle)
+// {
+// 	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
+// 	return (buffer & TMC5160_RS_STOPL) ? true : false;
+// }
 
-bool TMC5160_Get_Right_Endstop(TMC5160TypeDef *handle)
-{
-	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
-	return buffer & TMC5160_RS_STOPR ? true : false;
-}
+// bool TMC5160_Get_Right_Endstop(TMC5160TypeDef *handle)
+// {
+// 	int32_t buffer = TMC5160_Read_Register(handle, TMC5160_DRVSTATUS);
+// 	return (buffer & TMC5160_RS_STOPR) ? true : false;
+// }

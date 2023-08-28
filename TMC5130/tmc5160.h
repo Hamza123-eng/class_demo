@@ -1,6 +1,6 @@
 #ifndef TMC_5130_H_
 #define TMC_5130_H_
-
+#include "stdbool.h"
 #include "Macros.h"
 #include "stm32f4xx_hal.h"
 #include "RegisterAccess.h"
@@ -73,7 +73,8 @@ int32_t TMC5160_Get_Auto_Right_Stop(TMC5160TypeDef *handle);
 void TMC5160_Set_Auto_Right_Stop(TMC5160TypeDef *handle, int32_t value);
 int32_t TMC5160_Get_Auto_Left_Stop(TMC5160TypeDef *handle);
 void TMC5160_Set_Auto_Left_Pol_Stop(TMC5160TypeDef *handle, bool pol);
-void TMC5160_Set_Auto_Right_Pol_Stop(TMC5160TypeDef *handle, bool pol) void TMC5160_Set_Auto_Left_Stop(TMC5160TypeDef *handle, int32_t value);
+void TMC5160_Set_Auto_Right_Pol_Stop(TMC5160TypeDef *handle, bool pol);
+void TMC5160_Set_Auto_Left_Stop(TMC5160TypeDef *handle, int32_t value);
 int32_t TMC5160_Get_SW_MODE(TMC5160TypeDef *handle);
 void TMC5160_Set_SW_MODE(TMC5160TypeDef *handle, int32_t value);
 int32_t TMC5160_Get_ACC_A1(TMC5160TypeDef *handle);
@@ -162,7 +163,8 @@ void TMC5160_Set_Encoder_Position(TMC5160TypeDef *handle, int32_t value);
 int32_t TMC5160_Get_Encoder_Resolution(TMC5160TypeDef *handle);
 void TMC5160_Set_Encoder_Resolution(TMC5160TypeDef *handle, int32_t value);
 bool TMC5160_Pos_Reached(TMC5160TypeDef *handle);
-bool TMC5160_Get_Right_Endstop(TMC5160TypeDef *handle);
-bool TMC5160_Get_Left_Endstop(TMC5160TypeDef *handle);
-
+// bool TMC5160_Get_Right_Endstop(TMC5160TypeDef *handle);
+// bool TMC5160_Get_Left_Endstop(TMC5160TypeDef *handle);
+void TMC5160_Set_Mode_Idle(TMC5160TypeDef *handle);
+void TMC5160_Set_Mode_Position(TMC5160TypeDef *handle);
 #endif /* TMC_5130_H_ */
