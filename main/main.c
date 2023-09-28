@@ -1,6 +1,6 @@
 // master conflict 1
-//featre2 conflict 1
-//featre2 conflict 2
+// featre2 conflict 1
+// featre2 conflict 2
 /* vl53l1 Example
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
@@ -9,7 +9,7 @@
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
 */
-//feature2 normal commit
+// feature2 normal commit
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,9 +27,7 @@
 // now testing
 
 // futher addition in the fature2
-//git merge conflict merger feature hamzatest
-
-
+// git merge conflict merger feature hamzatest
 
 #define I2C_MASTER_SCL_IO CONFIG_SCL_IO // make menuconfig
 #define I2C_MASTER_SDA_IO CONFIG_SDA_IO
@@ -170,3 +168,5 @@ void app_main()
     get_base_height(&vl53l1_dev); // get the height when booted as the base height
 }
 my_chage_1
+
+my_change_2
